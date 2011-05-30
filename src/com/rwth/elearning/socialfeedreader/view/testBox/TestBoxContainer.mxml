@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:fx="http://ns.adobe.com/mxml/2009" 
+				   xmlns:s="library://ns.adobe.com/flex/spark" 
+				   xmlns:mx="library://ns.adobe.com/flex/mx" xmlns:testBox="com.rwth.elearning.socialfeedreader.view.testBox.*">
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<fx:Script>
+		<![CDATA[
+			import com.adobe.cairngorm.control.CairngormEventDispatcher;
+			import com.rwth.elearning.socialfeedreader.event.testBox.TestBoxEvent;
+			import com.rwth.elearning.socialfeedreader.model.SocialFeedReaderModelLocator;
+			
+			[Bindable]
+			public var model:SocialFeedReaderModelLocator;
+			
+			/**
+			 * Step 1:
+			 * We will through a TestEvent.
+			 * This TestEvent holds every information about the event, which are:
+			 * 1: The new width of the box. We read this out of the slider.
+			 * 2: The VO-Container, on which the TestBox is binding (the VO is part of the model)
+			 * The SocialFeedReaderController (in the control package) will forward this event to the ChangeTextBoxWidthCommand, where Step 2 is described.
+			 **/
+			private function setWidthOfBox():void{
+				var event:TestBoxEvent = new TestBoxEvent(widthSlider.value, model.testBoxModel.testBox);
+				CairngormEventDispatcher.getInstance().dispatchEvent(event);
+			}
+			
+		]]>
+	</fx:Script>
+	
+	<mx:VBox
+		x="20"
+		y="20">
+		<testBox:TestBox
+			testBoxVO="{model.testBoxModel.testBox}"/>
+		
+		<s:Label text="This is a test slider to play with the width (databinding+MVC)"/>	
+		<s:HSlider
+			id="widthSlider"
+			minimum="0"
+			maximum="500"
+			value="{model.testBoxModel.testBox.width}"
+			change="setWidthOfBox()"/>
+	</mx:VBox>
+	
+</mx:VBox>

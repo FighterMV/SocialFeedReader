@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx"
+		 x="{testBoxVO.x}"
+		 y="{testBoxVO.y}"
+		 width="{testBoxVO.width}"
+		 height="{testBoxVO.height}"
+		 borderStyle="solid">
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<fx:Script>
+		<![CDATA[
+			
+			/**
+			 * Step 4: The View
+			 * Finally, this is the view of the MVC pattern. The TestBox is binding on the VO from the model.
+			 * You can see on top, that x,y,width and height is bound to the model, so if anything in the testBoxVO changes it will be updated automaticly.
+			 **/
+			
+			import com.rwth.elearning.socialfeedreader.vo.testBox.TestBoxVO;
+			[Bindable]
+			public var testBoxVO:TestBoxVO;
+		]]>
+	</fx:Script>
+	
+</mx:VBox>
