@@ -13,6 +13,10 @@ package com.rwth.elearning.socialfeedreader.command.twitter
 	import flash.system.Security;
 	
 	import mx.controls.Alert;
+	import mx.rpc.IResponder;
+	import mx.rpc.events.FaultEvent;
+	import mx.rpc.events.ResultEvent;
+	import mx.rpc.http.HTTPService;
 
 	public class GetPostsByUserCommand implements ICommand
 	{
@@ -25,39 +29,28 @@ package com.rwth.elearning.socialfeedreader.command.twitter
 			Security.allowDomain("*");
 			Security.allowInsecureDomain("*");
 			Security.loadPolicyFile("https://twitter.com/crossdomain.xml");
-
-			
-			trace("Starting to get posts by user");
 			
 			var twitterEvent:GetPostsByUserEvent = GetPostsByUserEvent(event);
 			
-			//var urlRequest:URLRequest = new URLRequest("http://search.twitter.com/search.atom?q=from%3" + twitterEvent.username);
-			var urlRequest:URLRequest = new URLRequest("http://api.twitter.com/1/users/show/elchen1988.xml");
+			var httpService:HTTPService = new HTTPService();
+			httpService.method = "GET";
+			httpService.contentType = "application/xml";
+			httpService.resultFormat = "xml";
+			httpService.url = "http://eckhard.smashnet.de/proxy.php?username=" + twitterEvent.username;
+			httpService.addEventListener(ResultEvent.RESULT, result);
+			httpService.addEventListener(FaultEvent.FAULT, fault);
+			
+			httpService.send();
 			
 			
-			var loader:Loader = new Loader();
-			loader.addEventListener(Event.COMPLETE, receivedData);
-			loader.addEventListener(IOErrorEvent.IO_ERROR, error);
-			loader.addEventListener(SecurityErrorEvent.SECURITY_ERROR, securityError);
-			loader.load(urlRequest);
-			
-			Alert.show("Sending url: " + urlRequest.url);
-			trace("Sending url: " + urlRequest.url);
-			
-		}		
+		}	
 		
-		private function receivedData(event:Event):void {
-			trace("Received data for user");
+		public function result(event:ResultEvent):void{
 			Alert.show("success");
-			var test:int;
 		}
-		private function error(event:Event):void {
-			Alert.show("error");
-			trace("failed to receive data for user");
-		}
-		private function securityError(event:Event):void {
-			Alert.show("security error");
-			trace("failed to receive data for user");
+		
+		public function fault(event:FaultEvent):void{
+			Alert.show("Error");
 		}
 		
 	}
