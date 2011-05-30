@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx"
+		 width="100%"
+		 horizontalAlign="center">
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<fx:Script>
+		<![CDATA[
+			import com.rwth.elearning.socialfeedreader.vo.style.main.MainContentVO;
+			[Bindable]
+			public var mainContent:MainContentVO;
+		]]>
+	</fx:Script>
+	
+	<s:Label
+		fontSize="20"
+		text="Main Content Styler"/>
+	
+	<mx:Spacer
+		height="20"/>
+	
+	<mx:HBox
+		width="100%">
+		<s:Label
+			text="Alpha:"
+			fontSize="15"/>
+		<s:HSlider
+			id="alphaStyler"
+			minimum="0"
+			maximum="1"
+			snapInterval="0.01"
+			width="100%"
+			value="@{mainContent.alpha}"/>
+	</mx:HBox>
+	
+	
+	<mx:HBox
+		width="100%">
+		<s:Label
+			text="Background Color:"
+			fontSize="15"/>
+		<mx:ColorPicker
+			id="backgroundColorStyler"
+			selectedColor="@{mainContent.backgroundColor}"/>
+	</mx:HBox>
+	
+</mx:VBox>

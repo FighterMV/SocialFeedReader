@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Accordion xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" 
+		 borderStyle="solid"
+		 xmlns:style="com.rwth.elearning.socialfeedreader.view.main.widget.twitter.style.*" xmlns:style1="com.rwth.elearning.socialfeedreader.view.main.widget.mainContent.style.*">
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<fx:Script>
+		<![CDATA[
+			import com.rwth.elearning.socialfeedreader.model.style.StyleModel;
+			[Bindable]
+			public var styleModel:StyleModel;
+		]]>
+	</fx:Script>
+	
+	<style1:MainContentStyler
+		mainContent="{styleModel.mainContent}"
+		label="Main Content"/>
+	
+	<style:TwitterWidgetStyler
+		twitterWidget="{styleModel.twitterWidget}"
+		label="Twitter Widget"/>
+	
+</mx:Accordion>

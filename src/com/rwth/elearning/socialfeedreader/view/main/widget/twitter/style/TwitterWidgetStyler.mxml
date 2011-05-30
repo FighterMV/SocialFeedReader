@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx"
+		 width="100%"
+		 horizontalAlign="center">
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<fx:Script>
+		<![CDATA[
+			import com.rwth.elearning.socialfeedreader.vo.style.widgets.TwitterWidgetVO;
+			
+			[Bindable]
+			public var twitterWidget:TwitterWidgetVO;
+			
+		]]>
+	</fx:Script>
+	
+	<s:Label
+		fontSize="20"
+		text="Twitter Widget Styler"/>
+	
+	<mx:Spacer
+		height="20"/>
+	
+	<mx:HBox
+		width="100%">
+		<s:Label
+			text="Show Twitter Widget?"
+			fontSize="15"/>
+		<s:CheckBox
+			selected="@{twitterWidget.isVisible}"/>
+	</mx:HBox>
+	
+	<mx:HBox
+		width="100%">
+		<s:Label
+			text="X-Position:"
+			fontSize="15"/>
+		<s:HSlider
+			id="xStyler"
+			minimum="0"
+			maximum="800"
+			width="100%"
+			value="@{twitterWidget.x}"/>
+	</mx:HBox>
+	
+	<mx:HBox
+		width="100%">
+		<s:Label
+			text="Y-Position:"
+			fontSize="15"/>
+		<s:HSlider
+			id="yStyler"
+			minimum="0"
+			maximum="800"
+			width="100%"
+			value="@{twitterWidget.y}"/>
+	</mx:HBox>
+	
+	<mx:HBox
+		width="100%">
+		<s:Label
+			text="Width:"
+			fontSize="15"/>
+		<s:HSlider
+			id="widthStyler"
+			minimum="0"
+			maximum="500"
+			width="100%"
+			value="@{twitterWidget.width}"/>
+	</mx:HBox>
+	
+	<mx:HBox
+		width="100%">
+		<s:Label
+			text="Height:"
+			fontSize="15"/>
+		<s:HSlider
+			id="heightStyler"
+			minimum="0"
+			maximum="500"
+			width="100%"
+			value="@{twitterWidget.height}"/>
+	</mx:HBox>
+	
+	
+	<mx:HBox
+		width="100%">
+		<s:Label
+			text="Corner Radius:"
+			fontSize="15"/>
+		<s:HSlider
+			id="cornerRadiusStyler"
+			minimum="0"
+			maximum="25"
+			width="100%"
+			value="@{twitterWidget.cornerRadius}"/>
+	</mx:HBox>
+	
+	
+	<mx:HBox
+		width="100%">
+		<s:Label
+			text="Alpha:"
+			fontSize="15"/>
+		<s:HSlider
+			id="alphaStyler"
+			minimum="0"
+			maximum="1"
+			snapInterval="0.01"
+			width="100%"
+			value="@{twitterWidget.alpha}"/>
+	</mx:HBox>
+	
+	
+	<mx:HBox
+		width="100%">
+		<s:Label
+			text="Background Color:"
+			fontSize="15"/>
+		<mx:ColorPicker
+			id="backgroundColorStyler"
+			selectedColor="@{twitterWidget.bgColor}"/>
+	</mx:HBox>
+	
+	
+</mx:VBox>

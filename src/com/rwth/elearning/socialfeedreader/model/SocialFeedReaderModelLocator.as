@@ -1,6 +1,6 @@
 package com.rwth.elearning.socialfeedreader.model
 {
-	import com.rwth.elearning.socialfeedreader.model.twitter.TwitterModel;
+	import com.rwth.elearning.socialfeedreader.model.style.StyleModel;
 
 	[Bindable]
 	public class SocialFeedReaderModelLocator
@@ -9,23 +9,23 @@ package com.rwth.elearning.socialfeedreader.model
 		private static var _modelLocator:SocialFeedReaderModelLocator;
 		
 		private var _testBoxModel:TestBoxModel;
-		
-		private var _twitterModel:TwitterModel;
+				
+		private var _styleModel:StyleModel;
 		
 		public function SocialFeedReaderModelLocator()
 		{
 			_testBoxModel = new TestBoxModel();
-			_twitterModel = new TwitterModel();
+			_styleModel = new StyleModel();
 		}
 		
-		public function get twitterModel():TwitterModel
+		public function get styleModel():StyleModel
 		{
-			return _twitterModel;
+			return _styleModel;
 		}
 
-		public function set twitterModel(value:TwitterModel):void
+		public function set styleModel(value:StyleModel):void
 		{
-			_twitterModel = value;
+			_styleModel = value;
 		}
 
 		public static function getInstance():SocialFeedReaderModelLocator{

@@ -4,7 +4,11 @@
 			   xmlns:mx="library://ns.adobe.com/flex/mx" 
 			   minWidth="955" 
 			   minHeight="600" 
-			   xmlns:control="com.rwth.elearning.socialfeedreader.control.*" xmlns:testBox="com.rwth.elearning.socialfeedreader.view.testBox.*" xmlns:twitter="com.rwth.elearning.socialfeedreader.view.twitter.*">
+			   backgroundColor="#D6D6D6"
+			   xmlns:control="com.rwth.elearning.socialfeedreader.control.*" 
+			   xmlns:testBox="com.rwth.elearning.socialfeedreader.view.testBox.*" 
+			   xmlns:twitter="com.rwth.elearning.socialfeedreader.view.twitter.*" 
+			   xmlns:view="com.rwth.elearning.socialfeedreader.view.*">
 	<fx:Script>
 		<![CDATA[
 			import com.rwth.elearning.socialfeedreader.model.SocialFeedReaderModelLocator;
@@ -15,12 +19,8 @@
 		<control:SocialFeedReaderController id="controller"/>
 	</fx:Declarations>
 	
-	<mx:VBox>		
-		<testBox:TestBoxContainer
-			model="{SocialFeedReaderModelLocator.getInstance()}"/>
-		
-		<twitter:PostsDisplayer/>
-	</mx:VBox>
+	<view:MainPage
+		model="{SocialFeedReaderModelLocator.getInstance()}"/>
 	
 	
 </s:Application>
