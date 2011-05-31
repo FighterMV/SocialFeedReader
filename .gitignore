@@ -1,1 +1,4 @@
 .DS_Store
+*.swf
+bin-debug/*
+html-template/*
