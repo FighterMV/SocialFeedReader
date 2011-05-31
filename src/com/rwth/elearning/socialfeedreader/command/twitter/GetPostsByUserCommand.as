@@ -26,10 +26,6 @@ package com.rwth.elearning.socialfeedreader.command.twitter
 		
 		public function execute(event:CairngormEvent):void{
 			
-			Security.allowDomain("*");
-			Security.allowInsecureDomain("*");
-			Security.loadPolicyFile("https://twitter.com/crossdomain.xml");
-			
 			var twitterEvent:GetPostsByUserEvent = GetPostsByUserEvent(event);
 			
 			var httpService:HTTPService = new HTTPService();
