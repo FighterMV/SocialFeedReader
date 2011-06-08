@@ -11,7 +11,8 @@
 		 cornerRadius="{twitterWidget.cornerRadius}"
 		 borderStyle="solid"
 		 visible="{twitterWidget.isVisible}"
-		 title="Twitter">
+		 title="Twitter" 
+		 xmlns:display="com.rwth.elearning.socialfeedreader.view.main.widget.twitter.display.*">
 	
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
@@ -19,12 +20,21 @@
 	
 	<fx:Script>
 		<![CDATA[
+			import com.rwth.elearning.socialfeedreader.vo.content.twitter.TwitterWidgetContentVO;
 			import com.rwth.elearning.socialfeedreader.vo.style.widgets.TwitterWidgetVO;
 			[Bindable]
 			public var twitterWidget:TwitterWidgetVO;
+			
+			[Bindable]
+			public var twitterContent:TwitterWidgetContentVO;
 		]]>
 	</fx:Script>
 	
+	<display:TwitterPostGetter/>
 	
+	<display:TwitterContentDisplayer
+		content="{twitterContent}"
+		width="100%"/>
+		
 	
 </mx:Panel>

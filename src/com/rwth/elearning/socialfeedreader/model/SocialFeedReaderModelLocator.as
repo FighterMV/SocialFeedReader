@@ -1,5 +1,6 @@
 package com.rwth.elearning.socialfeedreader.model
 {
+	import com.rwth.elearning.socialfeedreader.model.content.ContentModel;
 	import com.rwth.elearning.socialfeedreader.model.style.StyleModel;
 
 	[Bindable]
@@ -12,12 +13,25 @@ package com.rwth.elearning.socialfeedreader.model
 				
 		private var _styleModel:StyleModel;
 		
+		private var _contentModel:ContentModel;
+		
 		public function SocialFeedReaderModelLocator()
 		{
 			_testBoxModel = new TestBoxModel();
 			_styleModel = new StyleModel();
+			_contentModel = new ContentModel();
 		}
 		
+		public function get contentModel():ContentModel
+		{
+			return _contentModel;
+		}
+
+		public function set contentModel(value:ContentModel):void
+		{
+			_contentModel = value;
+		}
+
 		public function get styleModel():StyleModel
 		{
 			return _styleModel;

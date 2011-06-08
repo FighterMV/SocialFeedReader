@@ -22,7 +22,7 @@
 	</fx:Script>
 	
 	<display:WidgetDisplayer
-		styleModel="{model.styleModel}"
+		model="{model}"
 		width="66%"
 		height="100%"/>
 	

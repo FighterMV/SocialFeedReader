@@ -19,8 +19,8 @@ package com.rwth.elearning.socialfeedreader.vo.style.widgets
 		{
 			_x = 50;
 			_y = 50;
-			_width = 200;
-			_height = 150;
+			_width = 500;
+			_height = 300;
 			_bgColor = 0x6699cc;
 			_textColor = 0x000000;
 			_cornerRadius = 5;
