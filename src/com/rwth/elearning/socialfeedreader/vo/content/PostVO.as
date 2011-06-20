@@ -1,8 +1,8 @@
-package com.rwth.elearning.socialfeedreader.vo.content.twitter
+package com.rwth.elearning.socialfeedreader.vo.content
 {
 	import mx.controls.Image;
 
-	public class TwitterPostVO
+	public class PostVO
 	{
 		
 		private var _username:String;
@@ -10,8 +10,20 @@ package com.rwth.elearning.socialfeedreader.vo.content.twitter
 		private var _date:String;
 		private var _content:String;
 		
-		public function TwitterPostVO()
+		private var _plattform:String
+		
+		public function PostVO()
 		{
+		}
+
+		public function get plattform():String
+		{
+			return _plattform;
+		}
+
+		public function set plattform(value:String):void
+		{
+			_plattform = value;
 		}
 
 		public function get userImageUrl():String

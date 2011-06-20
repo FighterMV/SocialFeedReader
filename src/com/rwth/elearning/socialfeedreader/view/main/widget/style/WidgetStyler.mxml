@@ -10,17 +10,17 @@
 	
 	<fx:Script>
 		<![CDATA[
-			import com.rwth.elearning.socialfeedreader.vo.style.widgets.TwitterWidgetVO;
+			import com.rwth.elearning.socialfeedreader.vo.style.widgets.WidgetVO;
 			
 			[Bindable]
-			public var twitterWidget:TwitterWidgetVO;
+			public var widget:WidgetVO;
 			
 		]]>
 	</fx:Script>
 	
 	<s:Label
 		fontSize="20"
-		text="Twitter Widget Styler"/>
+		text="Widget Styler"/>
 	
 	<mx:Spacer
 		height="20"/>
@@ -28,10 +28,10 @@
 	<mx:HBox
 		width="100%">
 		<s:Label
-			text="Show Twitter Widget?"
+			text="Show Widget?"
 			fontSize="15"/>
 		<s:CheckBox
-			selected="@{twitterWidget.isVisible}"/>
+			selected="@{widget.isVisible}"/>
 	</mx:HBox>
 	
 	<mx:HBox
@@ -44,7 +44,7 @@
 			minimum="0"
 			maximum="800"
 			width="100%"
-			value="@{twitterWidget.x}"/>
+			value="@{widget.x}"/>
 	</mx:HBox>
 	
 	<mx:HBox
@@ -57,7 +57,7 @@
 			minimum="0"
 			maximum="800"
 			width="100%"
-			value="@{twitterWidget.y}"/>
+			value="@{widget.y}"/>
 	</mx:HBox>
 	
 	<mx:HBox
@@ -70,7 +70,7 @@
 			minimum="0"
 			maximum="500"
 			width="100%"
-			value="@{twitterWidget.width}"/>
+			value="@{widget.width}"/>
 	</mx:HBox>
 	
 	<mx:HBox
@@ -83,7 +83,7 @@
 			minimum="0"
 			maximum="500"
 			width="100%"
-			value="@{twitterWidget.height}"/>
+			value="@{widget.height}"/>
 	</mx:HBox>
 	
 	
@@ -97,7 +97,7 @@
 			minimum="0"
 			maximum="25"
 			width="100%"
-			value="@{twitterWidget.cornerRadius}"/>
+			value="@{widget.cornerRadius}"/>
 	</mx:HBox>
 	
 	
@@ -112,7 +112,7 @@
 			maximum="1"
 			snapInterval="0.01"
 			width="100%"
-			value="@{twitterWidget.alpha}"/>
+			value="@{widget.alpha}"/>
 	</mx:HBox>
 	
 	
@@ -123,7 +123,7 @@
 			fontSize="15"/>
 		<mx:ColorPicker
 			id="backgroundColorStyler"
-			selectedColor="@{twitterWidget.bgColor}"/>
+			selectedColor="@{widget.bgColor}"/>
 	</mx:HBox>
 	
 	

@@ -5,7 +5,7 @@
 		   backgroundColor="{model.styleModel.mainContent.backgroundColor}"
 		   alpha="{model.styleModel.mainContent.alpha}"
 		   borderStyle="solid"
-		   xmlns:display="com.rwth.elearning.socialfeedreader.view.main.widget.twitter.display.*">
+		   xmlns:display="com.rwth.elearning.socialfeedreader.view.main.widget.display.*">
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
@@ -19,8 +19,8 @@
 		]]>
 	</fx:Script>
 	
-	<display:TwitterWidgetDisplayer
-		twitterWidget="{model.styleModel.twitterWidget}"
-		twitterContent="{model.contentModel.twitterContent}"/>
+	<display:WidgetDisplayer
+		twitterWidget="{model.styleModel.widget}"
+		twitterContent="{model.contentModel.currentContent}"/>
 	
 </mx:Canvas>

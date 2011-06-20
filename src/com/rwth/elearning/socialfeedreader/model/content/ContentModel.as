@@ -1,26 +1,26 @@
 package com.rwth.elearning.socialfeedreader.model.content
 {
-	import com.rwth.elearning.socialfeedreader.vo.content.twitter.TwitterWidgetContentVO;
+	import com.rwth.elearning.socialfeedreader.vo.content.WidgetContentVO;
 
 	[Bindable]
 	public class ContentModel
 	{
 		
-		private var _twitterContent:TwitterWidgetContentVO;
+		private var _currentContent:WidgetContentVO;
 		
 		public function ContentModel()
 		{
-			_twitterContent = new TwitterWidgetContentVO();
+			_currentContent = new WidgetContentVO();
 		}
 
-		public function get twitterContent():TwitterWidgetContentVO
+		public function get currentContent():WidgetContentVO
 		{
-			return _twitterContent;
+			return _currentContent;
 		}
 
-		public function set twitterContent(value:TwitterWidgetContentVO):void
+		public function set currentContent(value:WidgetContentVO):void
 		{
-			_twitterContent = value;
+			_currentContent = value;
 		}
 
 	}

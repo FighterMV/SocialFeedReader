@@ -1,6 +1,7 @@
 package com.rwth.elearning.socialfeedreader.model
 {
 	import com.rwth.elearning.socialfeedreader.model.content.ContentModel;
+	import com.rwth.elearning.socialfeedreader.model.network.FaceBookModel;
 	import com.rwth.elearning.socialfeedreader.model.style.StyleModel;
 
 	[Bindable]
@@ -15,13 +16,26 @@ package com.rwth.elearning.socialfeedreader.model
 		
 		private var _contentModel:ContentModel;
 		
+		private var _faceBookModel:FaceBookModel;
+		
 		public function SocialFeedReaderModelLocator()
 		{
 			_testBoxModel = new TestBoxModel();
 			_styleModel = new StyleModel();
 			_contentModel = new ContentModel();
+			_faceBookModel = new FaceBookModel();
 		}
 		
+		public function get faceBookModel():FaceBookModel
+		{
+			return _faceBookModel;
+		}
+
+		public function set faceBookModel(value:FaceBookModel):void
+		{
+			_faceBookModel = value;
+		}
+
 		public function get contentModel():ContentModel
 		{
 			return _contentModel;

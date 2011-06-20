@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx"
+		 width="100%"
+		 horizontalAlign="center">
+	<fx:Script>
+		<![CDATA[
+			import com.rwth.elearning.socialfeedreader.vo.content.PostVO;
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<fx:Script>
+		<![CDATA[
+			import com.adobe.cairngorm.control.CairngormEventDispatcher;
+			import com.rwth.elearning.socialfeedreader.event.facebook.GetFaceBookContentEvent;
+			import com.rwth.elearning.socialfeedreader.model.SocialFeedReaderModelLocator;
+			import com.facebook.graph.FacebookDesktop;
+			import com.rwth.elearning.socialfeedreader.vo.content.WidgetContentVO;
+			[Bindable]
+			public var content:WidgetContentVO;
+			
+			private function getContent():void{
+				var event:GetFaceBookContentEvent = new GetFaceBookContentEvent();
+				CairngormEventDispatcher.getInstance().dispatchEvent(event);
+			}
+			
+		]]>
+	</fx:Script>
+	
+	
+	<mx:Repeater
+		id="postRepeater"
+		dataProvider="{content.posts}">
+		
+		<mx:HRule
+			width="100%"/>
+		
+		<mx:HBox
+			width="90%">
+			
+			<mx:Image
+				source="{PostVO(postRepeater.currentItem).userImageUrl}"/>
+			
+			<mx:VBox
+				width="100%">
+				
+				<mx:HBox>
+					<s:Label
+						fontWeight="bold"
+						text="Username: "/>
+					<s:Label
+						text="{PostVO(postRepeater.currentItem).username}"/>
+				</mx:HBox>				
+				
+				<mx:HBox>
+					<s:Label
+						fontWeight="bold"
+						text="Date: "/>
+					<s:Label
+						text="{PostVO(postRepeater.currentItem).date}"/>
+				</mx:HBox>
+				
+				<mx:HBox>
+					<s:Label
+						fontWeight="bold"
+						text="Plattform: "/>
+					<s:Label
+						text="{PostVO(postRepeater.currentItem).plattform}"/>
+				</mx:HBox>
+				
+				<mx:Text
+					width="100%"
+					text="{PostVO(postRepeater.currentItem).content}"/>				
+				
+			</mx:VBox>
+			
+		</mx:HBox>
+		
+	</mx:Repeater>
+	
+	<s:Button label="Update" click="getContent()"/>
+	
+</mx:VBox>

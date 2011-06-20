@@ -1,18 +1,18 @@
 package com.rwth.elearning.socialfeedreader.model.style
 {
 	import com.rwth.elearning.socialfeedreader.vo.style.main.MainContentVO;
-	import com.rwth.elearning.socialfeedreader.vo.style.widgets.TwitterWidgetVO;
+	import com.rwth.elearning.socialfeedreader.vo.style.widgets.WidgetVO;
 
 	[Bindable]
 	public class StyleModel
 	{
 		
 		private var _mainContent:MainContentVO;
-		private var _twitterWidget:TwitterWidgetVO;
+		private var _widget:WidgetVO;
 		
 		public function StyleModel()
 		{
-			_twitterWidget = new TwitterWidgetVO();
+			_widget = new WidgetVO();
 			_mainContent = new MainContentVO();
 		}
 
@@ -26,14 +26,14 @@ package com.rwth.elearning.socialfeedreader.model.style
 			_mainContent = value;
 		}
 
-		public function get twitterWidget():TwitterWidgetVO
+		public function get widget():WidgetVO
 		{
-			return _twitterWidget;
+			return _widget;
 		}
 
-		public function set twitterWidget(value:TwitterWidgetVO):void
+		public function set widget(value:WidgetVO):void
 		{
-			_twitterWidget = value;
+			_widget = value;
 		}
 
 	}

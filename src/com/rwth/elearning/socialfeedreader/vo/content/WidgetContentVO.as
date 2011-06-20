@@ -1,15 +1,16 @@
-package com.rwth.elearning.socialfeedreader.vo.content.twitter
+package com.rwth.elearning.socialfeedreader.vo.content
 {
 	import mx.collections.ArrayCollection;
 
 	[Bindable]
-	public class TwitterWidgetContentVO
+	public class WidgetContentVO
 	{
 		
 		private var _posts:ArrayCollection;
 		
-		public function TwitterWidgetContentVO()
+		public function WidgetContentVO()
 		{
+			_posts = new ArrayCollection();
 		}
 
 		public function get posts():ArrayCollection

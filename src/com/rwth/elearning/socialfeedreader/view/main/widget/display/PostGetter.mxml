@@ -13,10 +13,10 @@
 			import com.adobe.cairngorm.control.CairngormEventDispatcher;
 			import com.rwth.elearning.socialfeedreader.event.twitter.GetPostsByUserEvent;
 			import com.rwth.elearning.socialfeedreader.model.SocialFeedReaderModelLocator;
-			import com.rwth.elearning.socialfeedreader.vo.content.twitter.TwitterWidgetContentVO;
+			import com.rwth.elearning.socialfeedreader.vo.content.WidgetContentVO;
 			private function getPostsByUser():void{
-				var twitterContent:TwitterWidgetContentVO = SocialFeedReaderModelLocator.getInstance().contentModel.twitterContent;
-				var event:GetPostsByUserEvent = new GetPostsByUserEvent(userToGetPostsFrom.text, twitterContent);
+				var content:WidgetContentVO = SocialFeedReaderModelLocator.getInstance().contentModel.currentContent;
+				var event:GetPostsByUserEvent = new GetPostsByUserEvent(userToGetPostsFrom.text, content);
 				CairngormEventDispatcher.getInstance().dispatchEvent(event);
 			}
 		]]>

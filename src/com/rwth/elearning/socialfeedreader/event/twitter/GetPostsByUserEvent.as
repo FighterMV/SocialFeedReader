@@ -1,7 +1,7 @@
 package com.rwth.elearning.socialfeedreader.event.twitter
 {
 	import com.adobe.cairngorm.control.CairngormEvent;
-	import com.rwth.elearning.socialfeedreader.vo.content.twitter.TwitterWidgetContentVO;
+	import com.rwth.elearning.socialfeedreader.vo.content.WidgetContentVO;
 
 	public class GetPostsByUserEvent extends CairngormEvent
 	{
@@ -9,21 +9,21 @@ package com.rwth.elearning.socialfeedreader.event.twitter
 		public static const GET_POST_BY_USER_EVENT:String = "getPostByUserEvent";
 		
 		private var _username:String;
-		private var _twitterContent:TwitterWidgetContentVO;
+		private var _twitterContent:WidgetContentVO;
 		
-		public function GetPostsByUserEvent(username:String, twitterContent:TwitterWidgetContentVO)
+		public function GetPostsByUserEvent(username:String, twitterContent:WidgetContentVO)
 		{
 			_username = username;
 			_twitterContent = twitterContent;
 			super(GET_POST_BY_USER_EVENT);
 		}
 		
-		public function get twitterContent():TwitterWidgetContentVO
+		public function get twitterContent():WidgetContentVO
 		{
 			return _twitterContent;
 		}
 
-		public function set twitterContent(value:TwitterWidgetContentVO):void
+		public function set twitterContent(value:WidgetContentVO):void
 		{
 			_twitterContent = value;
 		}

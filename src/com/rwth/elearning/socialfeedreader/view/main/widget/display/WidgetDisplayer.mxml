@@ -12,7 +12,7 @@
 		 borderStyle="solid"
 		 visible="{twitterWidget.isVisible}"
 		 title="Twitter" 
-		 xmlns:display="com.rwth.elearning.socialfeedreader.view.main.widget.twitter.display.*">
+		 xmlns:display="com.rwth.elearning.socialfeedreader.view.main.widget.display.*">
 	
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
@@ -20,19 +20,19 @@
 	
 	<fx:Script>
 		<![CDATA[
-			import com.rwth.elearning.socialfeedreader.vo.content.twitter.TwitterWidgetContentVO;
-			import com.rwth.elearning.socialfeedreader.vo.style.widgets.TwitterWidgetVO;
+			import com.rwth.elearning.socialfeedreader.vo.content.WidgetContentVO;
+			import com.rwth.elearning.socialfeedreader.vo.style.widgets.WidgetVO;
 			[Bindable]
-			public var twitterWidget:TwitterWidgetVO;
+			public var twitterWidget:WidgetVO;
 			
 			[Bindable]
-			public var twitterContent:TwitterWidgetContentVO;
+			public var twitterContent:WidgetContentVO;
 		]]>
 	</fx:Script>
 	
-	<display:TwitterPostGetter/>
+	<display:PostGetter/>
 	
-	<display:TwitterContentDisplayer
+	<display:ContentDisplayer
 		content="{twitterContent}"
 		width="100%"/>
 		

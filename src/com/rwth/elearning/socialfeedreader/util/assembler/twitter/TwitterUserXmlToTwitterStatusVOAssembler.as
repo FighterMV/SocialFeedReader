@@ -1,7 +1,7 @@
 package com.rwth.elearning.socialfeedreader.util.assembler.twitter
 {
-	import com.rwth.elearning.socialfeedreader.vo.content.twitter.TwitterPostVO;
-	import com.rwth.elearning.socialfeedreader.vo.content.twitter.TwitterWidgetContentVO;
+	import com.rwth.elearning.socialfeedreader.vo.content.PostVO;
+	import com.rwth.elearning.socialfeedreader.vo.content.WidgetContentVO;
 	
 	import flash.xml.XMLNode;
 	
@@ -17,17 +17,17 @@ package com.rwth.elearning.socialfeedreader.util.assembler.twitter
 		{
 		}
 		
-		public function assemble(xml:XMLNode):TwitterWidgetContentVO{			
+		public function assemble(xml:XMLNode):WidgetContentVO{			
 			
 			if(xml == null){
 				throw new Error("did not got any response");
 			}
 			
-			var twitterWidgetContent:TwitterWidgetContentVO = new TwitterWidgetContentVO();
+			var twitterWidgetContent:WidgetContentVO = new WidgetContentVO();
 			
 			for each(var childNode:XMLNode in xml.childNodes){
 				if(childNode.nodeName == "status"){
-					var post:TwitterPostVO = assemblePostInformation(childNode);
+					var post:PostVO = assemblePostInformation(childNode);
 					posts.addItem(post);
 				}
 			}
@@ -37,8 +37,8 @@ package com.rwth.elearning.socialfeedreader.util.assembler.twitter
 			return twitterWidgetContent;
 		}
 		
-		private function assemblePostInformation(xml:XMLNode):TwitterPostVO{
-			var post:TwitterPostVO = new TwitterPostVO();
+		private function assemblePostInformation(xml:XMLNode):PostVO{
+			var post:PostVO = new PostVO();
 			for each(var childNode:XMLNode in xml.childNodes){
 				if(childNode.nodeName == "text"){
 					post.content = childNode.firstChild.nodeValue;
@@ -57,6 +57,7 @@ package com.rwth.elearning.socialfeedreader.util.assembler.twitter
 					}
 				}
 			}
+			post.plattform = "Twitter";
 			return post;
 		}
 	}

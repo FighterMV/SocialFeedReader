@@ -1,7 +1,7 @@
 package com.rwth.elearning.socialfeedreader.vo.style.widgets
 {
 	[Bindable]
-	public class TwitterWidgetVO
+	public class WidgetVO
 	{
 		
 		private var _isVisible:Boolean;
@@ -15,7 +15,7 @@ package com.rwth.elearning.socialfeedreader.vo.style.widgets
 		private var _cornerRadius:int;
 		private var _textColor:Number;
 		
-		public function TwitterWidgetVO()
+		public function WidgetVO()
 		{
 			_x = 50;
 			_y = 50;

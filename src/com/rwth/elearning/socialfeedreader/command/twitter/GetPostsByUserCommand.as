@@ -4,8 +4,8 @@ package com.rwth.elearning.socialfeedreader.command.twitter
 	import com.adobe.cairngorm.control.CairngormEvent;
 	import com.rwth.elearning.socialfeedreader.event.twitter.GetPostsByUserEvent;
 	import com.rwth.elearning.socialfeedreader.util.assembler.twitter.TwitterUserXmlToTwitterStatusVOAssembler;
-	import com.rwth.elearning.socialfeedreader.vo.content.twitter.TwitterPostVO;
-	import com.rwth.elearning.socialfeedreader.vo.content.twitter.TwitterWidgetContentVO;
+	import com.rwth.elearning.socialfeedreader.vo.content.PostVO;
+	import com.rwth.elearning.socialfeedreader.vo.content.WidgetContentVO;
 	
 	import flash.display.Loader;
 	import flash.events.Event;
@@ -25,7 +25,7 @@ package com.rwth.elearning.socialfeedreader.command.twitter
 	public class GetPostsByUserCommand implements ICommand
 	{
 		
-		private var twitterContent:TwitterWidgetContentVO;
+		private var twitterContent:WidgetContentVO;
 		
 		public function GetPostsByUserCommand()
 		{
@@ -54,8 +54,12 @@ package com.rwth.elearning.socialfeedreader.command.twitter
 			try{
 				var xmlNode:XMLNode = event.result as XMLNode;
 				var assembler:TwitterUserXmlToTwitterStatusVOAssembler = new TwitterUserXmlToTwitterStatusVOAssembler();
-				var currentContent:TwitterWidgetContentVO = assembler.assemble(xmlNode);
-				this.twitterContent.posts = currentContent.posts;
+				var currentContent:WidgetContentVO = assembler.assemble(xmlNode);
+				var maxItems:int = Math.min(currentContent.posts.length, 5);
+				for(var i:int = 0; i < maxItems; i++){
+					var post:PostVO = currentContent.posts.getItemAt(i) as PostVO;
+					this.twitterContent.posts.addItem(post);
+				}
 			}catch(error:Error){
 				Alert.show("Username not found! Learn typing - noob!");
 			}			
