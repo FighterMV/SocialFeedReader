@@ -27,7 +27,8 @@
 			import mx.managers.PopUpManager;
 									
 			private function initApplication():void{
-				
+				initFaceBook();
+				initTwitter();
 			}
 			
 			private function initFaceBook():void{

@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:TitleWindow xmlns:fx="http://ns.adobe.com/mxml/2009" 
 			   xmlns:s="library://ns.adobe.com/flex/spark" 
-			   xmlns:mx="library://ns.adobe.com/flex/mx" width="400" height="300">
+			   xmlns:mx="library://ns.adobe.com/flex/mx" 
+			   width="400" 
+			   height="100"
+			   title="Please accept this Twitter App and enter the PIN">
 	<fx:Script>
 		<![CDATA[
 			import com.rwth.elearning.socialfeedreader.model.SocialFeedReaderModelLocator;
@@ -25,7 +28,7 @@
 			<s:TextInput id="pin"/>
 		</mx:FormItem>
 		<mx:FormItem>
-			<s:Button label="close" click="closeDialog()"/>
+			<s:Button label="Ok" click="closeDialog()"/>
 		</mx:FormItem>
 	</mx:Form>
 	

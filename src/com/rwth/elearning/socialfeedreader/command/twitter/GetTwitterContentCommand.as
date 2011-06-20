@@ -6,6 +6,8 @@ package com.rwth.elearning.socialfeedreader.command.twitter
 	import com.rwth.elearning.socialfeedreader.vo.content.PostVO;
 	import com.swfjunkie.tweetr.Tweetr;
 	import com.swfjunkie.tweetr.events.TweetEvent;
+	
+	import mx.controls.Alert;
 
 	public class GetTwitterContentCommand implements ICommand
 	{
@@ -16,6 +18,7 @@ package com.rwth.elearning.socialfeedreader.command.twitter
 		public function execute(rawEvent:CairngormEvent):void{
 			var twitterAPI:Tweetr = SocialFeedReaderModelLocator.getInstance().twitterModel.twitterAPI;
 			twitterAPI.addEventListener(TweetEvent.COMPLETE, handleTweetResult);
+			twitterAPI.addEventListener(TweetEvent.FAILED, handleFailed);
 			twitterAPI.getHomeTimeLine();
 		}
 		
@@ -33,6 +36,10 @@ package com.rwth.elearning.socialfeedreader.command.twitter
 				post.username = currentPost.user.name;
 				SocialFeedReaderModelLocator.getInstance().contentModel.currentContent.posts.addItem(post);
 			}
+		}
+		
+		private function handleFailed(event:TweetEvent):void{
+			Alert.show("Could not get Twitter Content");
 		}
 		
 	}

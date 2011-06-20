@@ -11,7 +11,7 @@
 		 cornerRadius="{widget.cornerRadius}"
 		 borderStyle="solid"
 		 visible="{widget.isVisible}"
-		 title="Twitter" 
+		 title="Content" 
 		 xmlns:display="com.rwth.elearning.socialfeedreader.view.main.widget.display.*" xmlns:display1="com.rwth.elearning.socialfeedreader.view.display.*">
 	
 	<fx:Declarations>

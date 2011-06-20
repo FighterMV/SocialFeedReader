@@ -25,6 +25,7 @@ package com.rwth.elearning.socialfeedreader.vo.style.widgets
 			_textColor = 0x000000;
 			_cornerRadius = 5;
 			_alpha = 1;
+			_isVisible = true;
 		}
 
 		public function get isVisible():Boolean

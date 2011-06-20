@@ -15,6 +15,7 @@
 	
 	<fx:Script>
 		<![CDATA[
+			import mx.collections.ArrayCollection;
 			import com.rwth.elearning.socialfeedreader.event.twitter.GetTwitterContentEvent;
 			import com.adobe.cairngorm.control.CairngormEventDispatcher;
 			import com.rwth.elearning.socialfeedreader.event.facebook.GetFaceBookContentEvent;
@@ -25,6 +26,9 @@
 			public var content:WidgetContentVO;
 			
 			private function getContent():void{
+				//Deleting old list
+				SocialFeedReaderModelLocator.getInstance().contentModel.currentContent.posts = new ArrayCollection();
+				//Getting current content
 				getFaceBookContent();
 				getTwitterContent();
 			}
