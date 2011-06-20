@@ -14,10 +14,23 @@
 		<![CDATA[
 			import com.facebook.graph.FacebookDesktop;
 			import com.rwth.elearning.socialfeedreader.model.SocialFeedReaderModelLocator;
+			import com.rwth.elearning.socialfeedreader.view.popup.TwitterPinValidation;
+			import com.swfjunkie.tweetr.Tweetr;
+			import com.swfjunkie.tweetr.events.TweetEvent;
+			import com.swfjunkie.tweetr.oauth.OAuth;
+			import com.swfjunkie.tweetr.oauth.events.OAuthEvent;
+			
+			import flash.net.navigateToURL;
 			
 			import mx.controls.Alert;
-						
+			import mx.events.CloseEvent;
+			import mx.managers.PopUpManager;
+									
 			private function initApplication():void{
+				
+			}
+			
+			private function initFaceBook():void{
 				FacebookDesktop.init("107654482662846", initHandler);
 				loginFaceBook();
 			}
@@ -43,6 +56,62 @@
 				FacebookDesktop.login(loginHandler, ["read_stream"]);
 			}
 			
+			private var tweetr:Tweetr = SocialFeedReaderModelLocator.getInstance().twitterModel.twitterAPI;
+			private var oAuth:OAuth;
+			private var serviceHost:String = "http://labs.swfjunkie.com/tweetr/proxy";
+			
+			private function initTwitter():void{
+				
+				tweetr.addEventListener(TweetEvent.COMPLETE, handleTweetEvent);
+				tweetr.addEventListener(TweetEvent.FAILED, handleTweetEvent);
+				
+				oAuth = new OAuth();
+				oAuth.addEventListener(OAuthEvent.COMPLETE, handleOAuthEvent);
+				oAuth.addEventListener(OAuthEvent.ERROR, handleOAuthEvent);
+				
+				tweetr.serviceHost = serviceHost;
+				oAuth.serviceHost = serviceHost;
+				
+				oAuth.consumerKey = "wJ7jWgEUaAFbR1C8f3MXfA";
+				oAuth.consumerSecret = "dlflCZGSR55g7FiEDJD3azPmOtiaSgdVb4LZrVYU";
+				
+				callTwitterAuthorization();
+			}
+			
+			private function handleTweetEvent(event:TweetEvent):void{
+				
+			}
+			
+			private function handleOAuthEvent(event:OAuthEvent):void{
+				if(event.type == OAuthEvent.COMPLETE){
+					
+					if(event.url){
+						navigateToURL(new URLRequest(event.url));
+						var twitterPinValidation:TwitterPinValidation = TwitterPinValidation(PopUpManager.createPopUp(this, TwitterPinValidation, true));
+						PopUpManager.centerPopUp(twitterPinValidation);
+						twitterPinValidation.addEventListener(CloseEvent.CLOSE, submitPin);
+					}else{
+						//We are finished and got our secret key, now we save our oAuth to tweetr
+						trace("Twitter successfully enabled");			
+						tweetr.oAuth = oAuth;
+						Alert.show("Connected to Twitter");
+					}
+					
+				}else if(event.type == OAuthEvent.ERROR){
+					
+				}
+			}
+			
+			private function callTwitterAuthorization():void{
+				oAuth.getAuthorizationRequest();
+			}
+			
+			private function submitPin(event:CloseEvent):void{
+				var pin:String = SocialFeedReaderModelLocator.getInstance().twitterModel.pin;
+				oAuth.requestAccessToken(pin);
+			}
+			
+			
 		]]>
 	</fx:Script>
 	<fx:Declarations>
@@ -54,6 +123,14 @@
 		height="100%"
 		horizontalAlign="center"
 		verticalAlign="middle">
+		
+		<s:Button
+			label="Enable Facebook"
+			click="initFaceBook()"/>
+		
+		<s:Button
+			label="Enable Twitter"
+			click="initTwitter()"/>
 		
 		<view:MainPage
 			model="{SocialFeedReaderModelLocator.getInstance()}"/>

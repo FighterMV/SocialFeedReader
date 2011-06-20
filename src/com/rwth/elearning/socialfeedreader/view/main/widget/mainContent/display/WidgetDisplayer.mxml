@@ -20,7 +20,7 @@
 	</fx:Script>
 	
 	<display:WidgetDisplayer
-		twitterWidget="{model.styleModel.widget}"
-		twitterContent="{model.contentModel.currentContent}"/>
+		widget="{model.styleModel.widget}"
+		content="{model.contentModel.currentContent}"/>
 	
 </mx:Canvas>

@@ -15,6 +15,7 @@
 	
 	<fx:Script>
 		<![CDATA[
+			import com.rwth.elearning.socialfeedreader.event.twitter.GetTwitterContentEvent;
 			import com.adobe.cairngorm.control.CairngormEventDispatcher;
 			import com.rwth.elearning.socialfeedreader.event.facebook.GetFaceBookContentEvent;
 			import com.rwth.elearning.socialfeedreader.model.SocialFeedReaderModelLocator;
@@ -23,8 +24,13 @@
 			[Bindable]
 			public var content:WidgetContentVO;
 			
-			private function getContent():void{
+			private function getFaceBookContent():void{
 				var event:GetFaceBookContentEvent = new GetFaceBookContentEvent();
+				CairngormEventDispatcher.getInstance().dispatchEvent(event);
+			}
+			
+			private function getTwitterContent():void{
+				var event:GetTwitterContentEvent = new GetTwitterContentEvent();
 				CairngormEventDispatcher.getInstance().dispatchEvent(event);
 			}
 			
@@ -82,6 +88,7 @@
 		
 	</mx:Repeater>
 	
-	<s:Button label="Update" click="getContent()"/>
+	<s:Button label="FaceBook" click="getFaceBookContent()"/>
+	<s:Button label="Twitter" click="getTwitterContent()"/>
 	
 </mx:VBox>

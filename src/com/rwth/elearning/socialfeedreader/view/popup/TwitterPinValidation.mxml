@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:TitleWindow xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx" width="400" height="300">
+	<fx:Script>
+		<![CDATA[
+			import com.rwth.elearning.socialfeedreader.model.SocialFeedReaderModelLocator;
+			
+			import mx.events.CloseEvent;
+			import mx.managers.PopUpManager;
+			
+			private function closeDialog():void{
+				SocialFeedReaderModelLocator.getInstance().twitterModel.pin = pin.text;
+				PopUpManager.removePopUp(this);
+				dispatchEvent(new CloseEvent(CloseEvent.CLOSE));
+			}
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<mx:Form>
+		<mx:FormItem label="Enter Pin: ">
+			<s:TextInput id="pin"/>
+		</mx:FormItem>
+		<mx:FormItem>
+			<s:Button label="close" click="closeDialog()"/>
+		</mx:FormItem>
+	</mx:Form>
+	
+</s:TitleWindow>

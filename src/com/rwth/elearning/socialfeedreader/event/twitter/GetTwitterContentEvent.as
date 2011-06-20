@@ -2,17 +2,17 @@ package com.rwth.elearning.socialfeedreader.event.twitter
 {
 	import com.adobe.cairngorm.control.CairngormEvent;
 
-	public class GetFriendsPostsEvent extends CairngormEvent
+	public class GetTwitterContentEvent extends CairngormEvent
 	{
 		
-		public static const GET_FRIENDS_POSTS_EVENT:String = "getFriendsPostsEvent";
+		public static const GET_TWITTER_CONTENT_EVENT:String = "getTwitterContentEvent";
 		
 		private var _username:String;
 		private var _twitterContent:String;
 		
-		public function GetFriendsPostsEvent()
+		public function GetTwitterContentEvent()
 		{
-			super(GET_FRIENDS_POSTS_EVENT);
+			super(GET_TWITTER_CONTENT_EVENT);
 		}
 
 		public function get twitterContent():String

@@ -2,15 +2,15 @@
 <mx:Panel xmlns:fx="http://ns.adobe.com/mxml/2009" 
 		 xmlns:s="library://ns.adobe.com/flex/spark" 
 		 xmlns:mx="library://ns.adobe.com/flex/mx"
-		 width="{twitterWidget.width}"
-		 height="{twitterWidget.height}"
-		 x="{twitterWidget.x}"
-		 y="{twitterWidget.y}"
-		 alpha="{twitterWidget.alpha}"
-		 backgroundColor="{twitterWidget.bgColor}"
-		 cornerRadius="{twitterWidget.cornerRadius}"
+		 width="{widget.width}"
+		 height="{widget.height}"
+		 x="{widget.x}"
+		 y="{widget.y}"
+		 alpha="{widget.alpha}"
+		 backgroundColor="{widget.bgColor}"
+		 cornerRadius="{widget.cornerRadius}"
 		 borderStyle="solid"
-		 visible="{twitterWidget.isVisible}"
+		 visible="{widget.isVisible}"
 		 title="Twitter" 
 		 xmlns:display="com.rwth.elearning.socialfeedreader.view.main.widget.display.*">
 	
@@ -23,17 +23,15 @@
 			import com.rwth.elearning.socialfeedreader.vo.content.WidgetContentVO;
 			import com.rwth.elearning.socialfeedreader.vo.style.widgets.WidgetVO;
 			[Bindable]
-			public var twitterWidget:WidgetVO;
+			public var widget:WidgetVO;
 			
 			[Bindable]
-			public var twitterContent:WidgetContentVO;
+			public var content:WidgetContentVO;
 		]]>
 	</fx:Script>
 	
-	<display:PostGetter/>
-	
 	<display:ContentDisplayer
-		content="{twitterContent}"
+		content="{content}"
 		width="100%"/>
 		
 	
