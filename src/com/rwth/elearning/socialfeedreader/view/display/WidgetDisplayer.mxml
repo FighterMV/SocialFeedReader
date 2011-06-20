@@ -12,7 +12,7 @@
 		 borderStyle="solid"
 		 visible="{widget.isVisible}"
 		 title="Twitter" 
-		 xmlns:display="com.rwth.elearning.socialfeedreader.view.main.widget.display.*">
+		 xmlns:display="com.rwth.elearning.socialfeedreader.view.main.widget.display.*" xmlns:display1="com.rwth.elearning.socialfeedreader.view.display.*">
 	
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
@@ -30,7 +30,7 @@
 		]]>
 	</fx:Script>
 	
-	<display:ContentDisplayer
+	<display1:ContentDisplayer
 		content="{content}"
 		width="100%"/>
 		

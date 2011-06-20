@@ -24,6 +24,11 @@
 			[Bindable]
 			public var content:WidgetContentVO;
 			
+			private function getContent():void{
+				getFaceBookContent();
+				getTwitterContent();
+			}
+			
 			private function getFaceBookContent():void{
 				var event:GetFaceBookContentEvent = new GetFaceBookContentEvent();
 				CairngormEventDispatcher.getInstance().dispatchEvent(event);
@@ -88,7 +93,6 @@
 		
 	</mx:Repeater>
 	
-	<s:Button label="FaceBook" click="getFaceBookContent()"/>
-	<s:Button label="Twitter" click="getTwitterContent()"/>
+	<s:Button label="Update" click="getContent()"/>
 	
 </mx:VBox>

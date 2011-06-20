@@ -5,7 +5,8 @@
 		   backgroundColor="{model.styleModel.mainContent.backgroundColor}"
 		   alpha="{model.styleModel.mainContent.alpha}"
 		   borderStyle="solid"
-		   xmlns:display="com.rwth.elearning.socialfeedreader.view.main.widget.display.*">
+		   xmlns:display="com.rwth.elearning.socialfeedreader.view.main.widget.display.*" 
+		   xmlns:sender="com.rwth.elearning.socialfeedreader.view.sender.*" xmlns:display1="com.rwth.elearning.socialfeedreader.view.display.*">
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
@@ -19,8 +20,11 @@
 		]]>
 	</fx:Script>
 	
-	<display:WidgetDisplayer
+	<display1:WidgetDisplayer
 		widget="{model.styleModel.widget}"
 		content="{model.contentModel.currentContent}"/>
+	
+	<sender:StatusMessageSender
+		senderVO="{model.styleModel.sender}"/>
 	
 </mx:Canvas>

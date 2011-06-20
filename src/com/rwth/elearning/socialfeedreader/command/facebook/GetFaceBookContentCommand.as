@@ -19,7 +19,7 @@ package com.rwth.elearning.socialfeedreader.command.facebook
 		}
 		
 		public function execute(event:CairngormEvent):void{
-									
+		
 			FacebookDesktop.api("/me/home", resultHandler);			
 			
 		}	

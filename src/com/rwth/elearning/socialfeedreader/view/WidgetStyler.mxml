@@ -3,7 +3,7 @@
 		 xmlns:s="library://ns.adobe.com/flex/spark" 
 		 xmlns:mx="library://ns.adobe.com/flex/mx" 
 		 borderStyle="solid"
-		 xmlns:style="com.rwth.elearning.socialfeedreader.view.main.widget.twitter.style.*" xmlns:style1="com.rwth.elearning.socialfeedreader.view.main.widget.mainContent.style.*" xmlns:style2="com.rwth.elearning.socialfeedreader.view.main.widget.style.*">
+		 xmlns:style="com.rwth.elearning.socialfeedreader.view.main.widget.twitter.style.*" xmlns:style1="com.rwth.elearning.socialfeedreader.view.main.widget.mainContent.style.*" xmlns:style2="com.rwth.elearning.socialfeedreader.view.main.widget.style.*" xmlns:style3="com.rwth.elearning.socialfeedreader.view.style.*">
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
@@ -16,12 +16,16 @@
 		]]>
 	</fx:Script>
 	
-	<style1:MainContentStyler
+	<style3:MainContentStyler
 		mainContent="{styleModel.mainContent}"
 		label="Main Content"/>
 	
-	<style2:WidgetStyler
+	<style3:WidgetStyler
 		widget="{styleModel.widget}"
-		label="Twitter Widget"/>
+		label="Content Widget"/>
+	
+	<style3:SenderStyler
+		senderVO="{styleModel.sender}"
+		label="Sender"/>
 	
 </mx:Accordion>

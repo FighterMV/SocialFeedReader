@@ -8,7 +8,7 @@
 		 horizontalAlign="center"
 		 verticalAlign="middle"
 		 horizontalCenter="0"
-		 verticalCenter="0" xmlns:display="com.rwth.elearning.socialfeedreader.view.main.widget.mainContent.display.*">
+		 verticalCenter="0" xmlns:display="com.rwth.elearning.socialfeedreader.view.main.widget.mainContent.display.*" xmlns:display1="com.rwth.elearning.socialfeedreader.view.main.widget.display.*" xmlns:display2="com.rwth.elearning.socialfeedreader.view.display.*">
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
@@ -21,7 +21,7 @@
 		]]>
 	</fx:Script>
 	
-	<display:WidgetDisplayer
+	<view:MainDisplayer
 		model="{model}"
 		width="66%"
 		height="100%"/>

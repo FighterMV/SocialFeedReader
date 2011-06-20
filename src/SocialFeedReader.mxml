@@ -46,6 +46,7 @@
 					SocialFeedReaderModelLocator.getInstance().faceBookModel.accessToken = success.accessToken;
 					SocialFeedReaderModelLocator.getInstance().faceBookModel.currentUserId = success.user.id;
 					SocialFeedReaderModelLocator.getInstance().faceBookModel.currentUsername = success.user.name;
+					faceBookEnabler.visible = false;
 				}else{
 					trace("login failed");
 				}
@@ -94,6 +95,7 @@
 						//We are finished and got our secret key, now we save our oAuth to tweetr
 						trace("Twitter successfully enabled");			
 						tweetr.oAuth = oAuth;
+						twitterEnabler.visible = false;
 						Alert.show("Connected to Twitter");
 					}
 					
@@ -125,10 +127,12 @@
 		verticalAlign="middle">
 		
 		<s:Button
+			id="faceBookEnabler"
 			label="Enable Facebook"
 			click="initFaceBook()"/>
 		
 		<s:Button
+			id="twitterEnabler"
 			label="Enable Twitter"
 			click="initTwitter()"/>
 		

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx"
+		 x="{senderVO.x}"
+		 y="{senderVO.y}">
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<fx:Script>
+		<![CDATA[
+			import com.adobe.cairngorm.control.CairngormEventDispatcher;
+			import com.rwth.elearning.socialfeedreader.event.facebook.SendFaceBookStatusMessageEvent;
+			import com.rwth.elearning.socialfeedreader.event.twitter.SendTwitterStatusMessageEvent;
+			import com.rwth.elearning.socialfeedreader.vo.style.sender.SenderVO;
+			
+			[Bindable]
+			public var senderVO:SenderVO;
+			
+			private function sendStatusMessage():void{
+				
+				var twitterEvent:SendTwitterStatusMessageEvent = new SendTwitterStatusMessageEvent(message.text);
+				CairngormEventDispatcher.getInstance().dispatchEvent(twitterEvent);
+				
+				var faceBookEvent:SendFaceBookStatusMessageEvent = new SendFaceBookStatusMessageEvent(message.text);
+				CairngormEventDispatcher.getInstance().dispatchEvent(faceBookEvent);
+			}
+		]]>
+	</fx:Script>
+	
+	
+	<s:TextInput
+		id="message"
+		maxChars="140"
+		width="{senderVO.width}"
+		height="{senderVO.height}"/>
+	
+	<s:Button
+		label="Send"
+		click="sendStatusMessage()"/>
+	
+</mx:VBox>
