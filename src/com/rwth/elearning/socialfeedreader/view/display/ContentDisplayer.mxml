@@ -15,33 +15,9 @@
 	
 	<fx:Script>
 		<![CDATA[
-			import mx.collections.ArrayCollection;
-			import com.rwth.elearning.socialfeedreader.event.twitter.GetTwitterContentEvent;
-			import com.adobe.cairngorm.control.CairngormEventDispatcher;
-			import com.rwth.elearning.socialfeedreader.event.facebook.GetFaceBookContentEvent;
-			import com.rwth.elearning.socialfeedreader.model.SocialFeedReaderModelLocator;
-			import com.facebook.graph.FacebookDesktop;
 			import com.rwth.elearning.socialfeedreader.vo.content.WidgetContentVO;
 			[Bindable]
 			public var content:WidgetContentVO;
-			
-			private function getContent():void{
-				//Deleting old list
-				SocialFeedReaderModelLocator.getInstance().contentModel.currentContent.posts = new ArrayCollection();
-				//Getting current content
-				getFaceBookContent();
-				getTwitterContent();
-			}
-			
-			private function getFaceBookContent():void{
-				var event:GetFaceBookContentEvent = new GetFaceBookContentEvent();
-				CairngormEventDispatcher.getInstance().dispatchEvent(event);
-			}
-			
-			private function getTwitterContent():void{
-				var event:GetTwitterContentEvent = new GetTwitterContentEvent();
-				CairngormEventDispatcher.getInstance().dispatchEvent(event);
-			}
 			
 		]]>
 	</fx:Script>
@@ -96,7 +72,5 @@
 		</mx:HBox>
 		
 	</mx:Repeater>
-	
-	<s:Button label="Update" click="getContent()"/>
 	
 </mx:VBox>

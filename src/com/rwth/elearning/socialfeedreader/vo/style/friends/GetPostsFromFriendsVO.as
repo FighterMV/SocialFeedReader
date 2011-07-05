@@ -1,7 +1,7 @@
-package com.rwth.elearning.socialfeedreader.vo.style.sender
+package com.rwth.elearning.socialfeedreader.vo.style.friends
 {
 	[Bindable]
-	public class SenderVO
+	public class GetPostsFromFriendsVO
 	{
 		
 		private var _x:int;
@@ -9,15 +9,15 @@ package com.rwth.elearning.socialfeedreader.vo.style.sender
 		private var _width:int;
 		private var _height:int;
 		
-		public function SenderVO()
+		public function GetPostsFromFriendsVO()
 		{
-			_x = 49;
+			_x = 400;
 			_y = 400;
-			_width = 200;
-			_height = 50;
+			_width = 138;
+			_height = 28;
+			
 		}
-		
-		
+
 		public function get height():int
 		{
 			return _height;

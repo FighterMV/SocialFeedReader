@@ -101,7 +101,7 @@
 					}
 					
 				}else if(event.type == OAuthEvent.ERROR){
-					
+					Alert.show("Was not able to connect to twitter");
 				}
 			}
 			

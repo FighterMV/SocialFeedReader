@@ -6,7 +6,7 @@
 		   alpha="{model.styleModel.mainContent.alpha}"
 		   borderStyle="solid"
 		   xmlns:display="com.rwth.elearning.socialfeedreader.view.main.widget.display.*" 
-		   xmlns:sender="com.rwth.elearning.socialfeedreader.view.sender.*" xmlns:display1="com.rwth.elearning.socialfeedreader.view.display.*">
+		   xmlns:sender="com.rwth.elearning.socialfeedreader.view.sender.*" xmlns:display1="com.rwth.elearning.socialfeedreader.view.display.*" xmlns:search="com.rwth.elearning.socialfeedreader.view.search.*" xmlns:friends="com.rwth.elearning.socialfeedreader.view.friends.*">
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
@@ -26,5 +26,11 @@
 	
 	<sender:StatusMessageSender
 		senderVO="{model.styleModel.sender}"/>
+	
+	<friends:PostsFromFriendsGetter
+		getPostsFromFriendsVO="{model.styleModel.getPostsFromFriendsVO}"/>		
+	
+	<search:ContentSearcher 
+		searchVO="{model.styleModel.search}"/>
 	
 </mx:Canvas>

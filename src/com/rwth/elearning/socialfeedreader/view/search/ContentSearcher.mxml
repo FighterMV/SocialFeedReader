@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx"
+		 x="{searchVO.x}"
+		 y="{searchVO.y}">
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<fx:Script>
+		<![CDATA[
+			import com.adobe.cairngorm.control.CairngormEventDispatcher;
+			import com.rwth.elearning.socialfeedreader.event.facebook.SearchFaceBookContentEvent;
+			import com.rwth.elearning.socialfeedreader.event.twitter.SearchTwitterContentEvent;
+			import com.rwth.elearning.socialfeedreader.model.SocialFeedReaderModelLocator;
+			import com.rwth.elearning.socialfeedreader.vo.style.search.SearchVO;
+			
+			import mx.collections.ArrayCollection;
+			
+			[Bindable]
+			public var searchVO:SearchVO;
+			
+			private function searchPlattformContent():void{
+				//Deleting old list
+				SocialFeedReaderModelLocator.getInstance().contentModel.currentContent.posts = new ArrayCollection();
+				//Searching new content
+				var faceBookEvent:SearchFaceBookContentEvent = new SearchFaceBookContentEvent(searchContent.text);
+				CairngormEventDispatcher.getInstance().dispatchEvent(faceBookEvent);
+				var twitterEvent:SearchTwitterContentEvent = new SearchTwitterContentEvent(searchContent.text);
+				CairngormEventDispatcher.getInstance().dispatchEvent(twitterEvent);
+			}
+		]]>
+	</fx:Script>
+	
+	<s:TextInput
+		id="searchContent"
+		width="{searchVO.width}"
+		height="{searchVO.height}"/>
+	
+	<s:Button
+		click="searchPlattformContent()"
+		label="Search"/>
+	
+</mx:VBox>

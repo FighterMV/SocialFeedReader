@@ -28,4 +28,12 @@
 		senderVO="{styleModel.sender}"
 		label="Sender"/>
 	
+	<style3:PostsFromFriendsGetterStyler
+		getPostsFromFriendsVO="{styleModel.getPostsFromFriendsVO}"
+		label="Friends Posts"/>
+	
+	<style3:SearchStyler
+		searchVO="{styleModel.search}"
+		label="Search"/>
+	
 </mx:Accordion>
