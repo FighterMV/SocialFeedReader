@@ -38,9 +38,13 @@ package com.rwth.elearning.socialfeedreader.command.twitter
 				post.username = currentPost.user;
 				SocialFeedReaderModelLocator.getInstance().contentModel.currentContent.posts.addItem(post);
 			}
+			SocialFeedReaderModelLocator.getInstance().twitterModel.twitterAPI.removeEventListener(TweetEvent.COMPLETE, handleTweetResult);
+			SocialFeedReaderModelLocator.getInstance().twitterModel.twitterAPI.removeEventListener(TweetEvent.FAILED, handleFailed);
 		}
 		
 		private function handleFailed(event:TweetEvent):void{
+			SocialFeedReaderModelLocator.getInstance().twitterModel.twitterAPI.removeEventListener(TweetEvent.COMPLETE, handleTweetResult);
+			SocialFeedReaderModelLocator.getInstance().twitterModel.twitterAPI.removeEventListener(TweetEvent.FAILED, handleFailed);
 			Alert.show("Could not get Twitter Content");
 		}
 	}
